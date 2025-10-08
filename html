@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Querés ser mi novia, Josi?</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at bottom, #0d1b2a 0%, #000 80%);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      z-index: 2;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(45deg, white, rgba(255,255,255,0));
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: shoot 2s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(600px, -600px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    button {
+      background-color: #ff4081;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.1em;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(255,64,129,0.6);
+      transition: 0.3s;
+      z-index: 2;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff669a;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>¿Querés ser mi novia, Josi? 💫</h1>
+  <button onclick="alert('Buena elección 😍')">Sí 💖</button>
+
+  <script>
+    // Generar estrellas fugaces
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('shooting-star');
+      document.body.appendChild(star);
+
+      // Posición aleatoria
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+
+      // Velocidad aleatoria
+      star.style.animationDuration = 1 + Math.random() * 2 + 's';
+
+      setTimeout(() => star.remove(), 2000);
+    }
+
+    setInterval(createStar, 300);
+  </script>
+</body>
+</html>
